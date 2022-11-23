@@ -38,7 +38,10 @@ class MainMenuActivity : AppCompatActivity() {
         val dataJson = readSettingsJson()
         var jsonConverter = ScenarioJson(dataJson)
 
-        var text = jsonConverter.scenarios?.getJSONObject(0)?.getString("name")
+
+
+        var scenarios = jsonConverter.getScenarios()
+        var text = scenarios[0].events[0].name
         val toast: Toast = Toast.makeText(applicationContext, text, Toast.LENGTH_LONG)
         toast.show()
 
