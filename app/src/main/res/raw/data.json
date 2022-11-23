@@ -1,0 +1,108 @@
+{
+  "scenarios": [
+    {
+      "name": "Testovací scénář 1",
+      "events": [
+        {
+          "type": "Story",
+          "id": 0,
+          "name": "Hrozivý les",
+          "story": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis viverra diam non justo. Aenean placerat. Aliquam in lorem sit amet leo accumsan lacinia. Aliquam erat volutpat.",
+          "options": [
+            {
+              "targetid": 1,
+              "name": "Jít do leva",
+              "hint": "Cesta se tmavá a plná stínů."
+            },
+            {
+              "targetid": 2,
+              "name": "Jít do prava",
+              "hint": "Cesta je dlážděná. Možná frekventovaná obchodníky."
+            }
+          ]
+        },
+        {
+          "type": "Challenge",
+          "id": 1,
+          "name": "Cesta se pomalu ztrácí",
+          "story": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis viverra diam non justo. Aenean placerat. Aliquam in lorem sit amet leo accumsan lacinia. Aliquam erat volutpat.",
+          "optionPassed": {
+            "targetid": 15,
+            "name": "Podařilo se ti projít.",
+            "hint": "Les je kratší než se zdá."
+          },
+          "optionFailed": {
+            "targetid": 0,
+            "name": "Ztratil jses.",
+            "hint": "Máš pocit že tento úsek lesa jsi již viděl."
+          },
+          "stats": [
+            {
+              "stat": "Wisdom",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "Story",
+          "id": 2,
+          "name": "Někdo se blíží",
+          "story": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis viverra diam non justo. Aenean placerat. Aliquam in lorem sit amet leo accumsan lacinia. Aliquam erat volutpat.",
+          "options": [
+            {
+              "targetid": 15,
+              "name": "Schovat se",
+              "hint": "Kousek od cesty je docela hezky velký balvan."
+            },
+            {
+              "targetid": 3,
+              "name": "Zůstat na cestě",
+              "hint": "Tahle cesta musí být bezpečná."
+            }
+          ]
+        },
+        {
+          "type": "Fight",
+          "id": 3,
+          "name": "Jsou to bandité",
+          "story": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis viverra diam non justo. Aenean placerat. Aliquam in lorem sit amet leo accumsan lacinia. Aliquam erat volutpat.",
+          "enemy": {
+            "name": "Bandité",
+            "descrition": "Banda budiž k ničemů.",
+            "health": 30.0,
+            "attack": 2.0,
+            "armor": 0.1
+          },
+          "optionPassed": {
+            "targetid": 15,
+            "name": "Porazil.",
+            "hint": "Kde se na mně banditi hrabou."
+          },
+          "optionFailed": {
+            "targetid": -8,
+            "name": "Poražen.",
+            "hint": "Tak tohle jsem opravdu nečekal."
+          }
+        },
+        {
+          "type": "End",
+          "id": 15,
+          "name": "Našel jsi konec lesa",
+          "story": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis viverra diam non justo. Aenean placerat. Aliquam in lorem sit amet leo accumsan lacinia. Aliquam erat volutpat.",
+          "options":
+          {
+            "targetid": -1,
+            "name": "Konec mé výpravy.",
+            "hint": "A že to byla cesta."
+          }
+        }
+      ]
+    }
+  ],
+  "heroes": [
+    {
+      "name": "karel",
+      "description": "Je to chlapec z vesnice. Teď se z něho stane chlap."
+    }
+  ]
+}

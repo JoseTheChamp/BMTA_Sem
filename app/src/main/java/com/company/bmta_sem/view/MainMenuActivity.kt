@@ -1,11 +1,17 @@
 package com.company.bmta_sem.view
 
+import Model.ScenarioJson
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.company.bmta_sem.R
-import com.company.bmta_sem.databinding.ActivityHeroesGalleryBinding
 import com.company.bmta_sem.databinding.ActivityMainMenuBinding
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+
 
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainMenuBinding
@@ -29,5 +35,31 @@ class MainMenuActivity : AppCompatActivity() {
             System.exit(0);
         }
 
+        val dataJson = readSettingsJson()
+        var jsonConverter = ScenarioJson(dataJson)
+
+        var text = jsonConverter.scenarios?.getJSONObject(0)?.getString("name")
+        val toast: Toast = Toast.makeText(applicationContext, text, Toast.LENGTH_LONG)
+        toast.show()
+
     }
+
+    fun readSettingsJson () : String {
+        var string: String? = ""
+        val stringBuilder = StringBuilder()
+        val inputStream: InputStream = this.resources.openRawResource(R.raw.data)
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        while (true) {
+            try {
+                if (reader.readLine().also { string = it } == null) break
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            stringBuilder.append(string).append("\n")
+
+        }
+        inputStream.close()
+        return stringBuilder.toString()
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.company.bmta_sem.model
+package Model
 
 abstract class Character () {
     open var name : String = "Entity"
