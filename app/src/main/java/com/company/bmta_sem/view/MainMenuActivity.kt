@@ -1,12 +1,14 @@
 package com.company.bmta_sem.view
 
-import Model.ScenarioJson
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.company.bmta_sem.R
 import com.company.bmta_sem.databinding.ActivityMainMenuBinding
+import com.company.bmta_sem.viewModel.Game
+import com.company.bmta_sem.viewModel.GameFactory
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -15,6 +17,7 @@ import java.io.InputStreamReader
 
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainMenuBinding
+    lateinit var game : Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +39,10 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
         val dataJson = readSettingsJson()
-        var jsonConverter = ScenarioJson(dataJson)
-
-
-
-        var scenarios = jsonConverter.getScenarios()
-        var text = scenarios[0].events[0].name
-        val toast: Toast = Toast.makeText(applicationContext, text, Toast.LENGTH_LONG)
+        val factory = GameFactory(dataJson)
+        game = ViewModelProvider(this, factory).get(Game::class.java)
+        var text = game.scenarios[0].events[0].name
+        val toast: Toast = Toast.makeText(applicationContext, text + "2", Toast.LENGTH_LONG)
         toast.show()
 
     }

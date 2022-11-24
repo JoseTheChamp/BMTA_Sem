@@ -5,7 +5,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class ScenarioJson (var dataJson : String) {
+class JsonConverter (var dataJson : String) {
     var scenarios : JSONArray? = null
     var heroes : JSONArray? = null
     init {
