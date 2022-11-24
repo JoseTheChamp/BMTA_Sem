@@ -3,25 +3,17 @@ package com.company.bmta_sem.viewModel
 import Model.Hero
 import Model.Scenario
 import Model.JsonConverter
+import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.company.bmta_sem.R
+import com.company.bmta_sem.view.HeroesGalleryActivity
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
-
-class GameFactory (
-    private val dataJson : String
-): ViewModelProvider.Factory {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(Game::class.java)) {
-            return Game(dataJson) as T
-        }
-        throw IllegalArgumentException("Unknown Viewmodel class")
-    }
-}
 
 class Game(
     dataJson: String = ""
@@ -35,11 +27,11 @@ class Game(
         heroes = jsonConverter.getHeroes()
     }
 
-
-
-
-
-
+    fun StartScenario(index: Int){
+        println("AAAAAAAAAAAAAA - spust " + index.toString())
+        println(scenarios[index].name)
+        //startActivity(Intent(context, HeroesGalleryActivity::class.java))
+    }
 
 
 

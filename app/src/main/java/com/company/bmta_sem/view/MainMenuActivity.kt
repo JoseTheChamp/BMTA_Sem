@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.company.bmta_sem.R
 import com.company.bmta_sem.databinding.ActivityMainMenuBinding
 import com.company.bmta_sem.viewModel.Game
-import com.company.bmta_sem.viewModel.GameFactory
+import com.company.bmta_sem.viewModel.GameProvider
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -39,8 +39,14 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
         val dataJson = readSettingsJson()
+        GameProvider.init(dataJson)
+        game = GameProvider.game
+        /*
         val factory = GameFactory(dataJson)
         game = ViewModelProvider(this, factory).get(Game::class.java)
+
+        var game2 = ViewModelProvider(this).get(Game::class.java)
+        */
         var text = game.scenarios[0].events[0].name
         val toast: Toast = Toast.makeText(applicationContext, text + "2", Toast.LENGTH_LONG)
         toast.show()

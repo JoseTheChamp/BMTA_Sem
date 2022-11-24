@@ -6,21 +6,21 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.company.bmta_sem.R
+import com.company.bmta_sem.viewModel.Game
+import com.company.bmta_sem.viewModel.GameProvider
 import java.text.FieldPosition
 
 class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var btnRow : Button
-    private var cislo : Int = 0
 
     init {
         btnRow = view.findViewById(R.id.row)
-        btnRow.setOnClickListener{
-            //TODO SOMETHIN i guess
-        }
     }
 
     fun setLogData(prompt: String,position: Int) {
         btnRow?.text = prompt
-        cislo = position
+        btnRow?.setOnClickListener{
+            GameProvider.game.StartScenario(position)
+        }
     }
 }

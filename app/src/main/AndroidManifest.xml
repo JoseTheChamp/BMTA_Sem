@@ -13,7 +13,7 @@
         android:theme="@style/Theme.BMTA_Sem"
         tools:targetApi="31">
         <activity
-            android:name=".HeroDetailActivity"
+            android:name=".view.HeroDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
