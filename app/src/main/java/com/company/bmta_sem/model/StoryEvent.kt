@@ -1,8 +1,10 @@
 package Model
 
+import com.company.bmta_sem.model.Event
 import java.lang.Exception
 
 class StoryEvent (override var id : Int, override var name : String, override var story : String, var options : List<EventOption>): Event() {
+
     fun vypis() : Int{
         println("------------------------------")
         println(id.toString() + name + " - " + story)
@@ -29,7 +31,11 @@ class StoryEvent (override var id : Int, override var name : String, override va
     override fun getEventOptionsPossible(hero: Hero): List<Boolean> {
         var bools = arrayListOf<Boolean>()
         for (option in options){
-            bools.add(option.isDoable(hero))
+            if (option.stat == null) {
+                bools.add(true)
+            }else{
+                bools.add(option.isDoable(hero))
+            }
         }
         return bools
     }

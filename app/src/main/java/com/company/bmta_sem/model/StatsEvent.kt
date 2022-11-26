@@ -1,10 +1,9 @@
 package Model
 
-import java.lang.Exception
+import com.company.bmta_sem.model.Event
 
 class StatsEvent (override var id : Int, override var name : String, override var story : String, var option : EventOption, var stats : List<StatValue>): Event() {
-    fun vypis(hero: Hero){
-        println(name + " - " + story)
+    fun execute(hero: Hero){
         for (stat in stats){
             when (stat.stat) {
                 Stat.STRENGTH -> hero.strength += stat.value
@@ -17,13 +16,11 @@ class StatsEvent (override var id : Int, override var name : String, override va
                 Stat.INTELIGENCE -> hero.inteligence += stat.value
                 Stat.WISDOM -> hero.wisdom += stat.value
             }
-            println(stat.stat.toString() + " " + stat.value.toString() + " na ")
         }
     }
+
     override fun run(hero: Hero): Int {
-        vypis(hero)
-        readln()
-        return option.targetId
+        TODO("Not yet implemented")
     }
 
     override fun getAllEventoptions(): List<EventOption> {
@@ -31,7 +28,7 @@ class StatsEvent (override var id : Int, override var name : String, override va
     }
 
     override fun getEventOptionsPossible(hero: Hero): List<Boolean> {
-        return listOf(option.isDoable(hero))
+        return listOf(true)
     }
 
 }

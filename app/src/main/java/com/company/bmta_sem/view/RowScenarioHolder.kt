@@ -16,6 +16,7 @@ class RowScenarioHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun setLogData(prompt: String,position: Int) {
         btnRow?.text = prompt
         btnRow?.setOnClickListener{
+            println("BUTTON PRESS")
             GameProvider.game.StartScenario(btnRow.context, position)
         }
     }

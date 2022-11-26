@@ -1,26 +1,25 @@
 package com.company.bmta_sem.view
 
-import com.company.bmta_sem.model.Event
-import Model.Hero
+import Model.FightEvent
 import Model.StoryEvent
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import com.company.bmta_sem.databinding.ActivityFightEventBinding
 import com.company.bmta_sem.databinding.ActivityStoryEventBinding
-import com.company.bmta_sem.viewModel.Game
 import com.company.bmta_sem.viewModel.GameProvider
 
-class StoryEventActivity() : EventActivity() {
-    private lateinit var binding : ActivityStoryEventBinding
-    lateinit var event: StoryEvent
+class FightEventActivity : EventActivity() {
+    private lateinit var binding : ActivityFightEventBinding
+    lateinit var event: FightEvent
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        println("IN CREATE OF STORY")
         super.onCreate(savedInstanceState)
-        binding = ActivityStoryEventBinding.inflate(layoutInflater)
+        binding = ActivityFightEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
         game = GameProvider.game
         hero = game.currentHero
-        event = game.currentEvent as StoryEvent
+        event = game.currentEvent as FightEvent
 
         setNameStory()
         setContent()
@@ -34,7 +33,12 @@ class StoryEventActivity() : EventActivity() {
     }
 
     override fun setContent() {
-
+        var enemy = TextView(this)
+        enemy.text = event.enemy.name + "\n" + event.enemy.description +
+                "\nHeatlh: " + event.enemy.health + "  Attack: " + event.enemy.attack +
+                "  Armor: " + event.enemy.armor
+        enemy.textSize = 16f
+        binding.layoutContent.addView(enemy)
     }
 
     override fun setOptions() {
@@ -44,4 +48,5 @@ class StoryEventActivity() : EventActivity() {
             binding.layoutButtons.addView(createoptionButton(options[i],possible[i],game,options.size))
         }
     }
+
 }

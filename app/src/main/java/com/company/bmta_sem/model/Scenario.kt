@@ -1,5 +1,7 @@
 package Model
 
+import com.company.bmta_sem.model.Event
+
 class Scenario (var name : String, var events : List<Event>) {
 lateinit var hero: Hero
 constructor(name: String, events: List<Event>, hero: Hero) : this(name,events){
@@ -19,7 +21,7 @@ constructor(name: String, events: List<Event>, hero: Hero) : this(name,events){
         println("Konec scenare.")
     }
 
-    fun findScenario(index : Int) : Event{
+    fun findScenario(index : Int) : Event {
         for (ev in events){
             if (ev.id == index){
                 return ev

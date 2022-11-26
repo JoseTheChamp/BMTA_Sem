@@ -1,5 +1,7 @@
 package Model
 
+import com.company.bmta_sem.model.Event
+
 class ChallengeEvent (override var id : Int, override var name : String, override var story : String, var optionPassed : EventOption, var optionFailed : EventOption, var stat : StatValue): Event() {
 
     fun vypis(hero: Hero) : EventOption{

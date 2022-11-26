@@ -1,26 +1,23 @@
 package com.company.bmta_sem.view
 
-import com.company.bmta_sem.model.Event
-import Model.Hero
-import Model.StoryEvent
-import android.content.Intent
+import Model.EndEvent
 import android.os.Bundle
-import com.company.bmta_sem.databinding.ActivityStoryEventBinding
-import com.company.bmta_sem.viewModel.Game
+import android.widget.TextView
+import com.company.bmta_sem.databinding.ActivityEndEventBinding
 import com.company.bmta_sem.viewModel.GameProvider
 
-class StoryEventActivity() : EventActivity() {
-    private lateinit var binding : ActivityStoryEventBinding
-    lateinit var event: StoryEvent
+class EndEventActivity : EventActivity() {
+    private lateinit var binding : ActivityEndEventBinding
+    lateinit var event: EndEvent
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        println("IN CREATE OF STORY")
         super.onCreate(savedInstanceState)
-        binding = ActivityStoryEventBinding.inflate(layoutInflater)
+        binding = ActivityEndEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
         game = GameProvider.game
         hero = game.currentHero
-        event = game.currentEvent as StoryEvent
+        event = game.currentEvent as EndEvent
 
         setNameStory()
         setContent()
@@ -34,7 +31,10 @@ class StoryEventActivity() : EventActivity() {
     }
 
     override fun setContent() {
-
+        var prompt = TextView(this)
+        prompt.text = "End of an Adventure."
+        prompt.textSize = 18f
+        binding.layoutContent.addView(prompt)
     }
 
     override fun setOptions() {

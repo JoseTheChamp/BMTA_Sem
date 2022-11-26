@@ -1,6 +1,7 @@
 package Model
 
 import android.util.Log
+import com.company.bmta_sem.model.Event
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -68,6 +69,16 @@ class JsonConverter (var dataJson : String) {
             "End" -> {
                 var option = readOption(jo.getJSONObject("option"))
                 return EndEvent(id,name,story,option)
+            }
+            "Stat" -> {
+                var stats : ArrayList<StatValue> = arrayListOf()
+                var option = readOption(jo.getJSONObject("option"))
+                var len = jo.getJSONArray("stats").length()
+                for (i in 0 until len step 1){
+                    stats.add(readStatValue(jo.getJSONArray("stats").getJSONObject(i)))
+                    //stats.add(readOption(jo.getJSONArray("stats").getJSONObject(i)))
+                }
+                return StatsEvent(id,name,story,option,stats)
             }
         }
         throw Exception("ERROR - my")

@@ -1,24 +1,33 @@
 package com.company.bmta_sem.view
 
-import Model.Event
+import com.company.bmta_sem.model.Event
 import Model.EventOption
+import Model.Hero
+import android.app.ActionBar.LayoutParams
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.updateLayoutParams
+import com.company.bmta_sem.databinding.ActivityStoryEventBinding
 import com.company.bmta_sem.viewModel.Game
 
-abstract class EventActivity(open var event: Event) : AppCompatActivity(){
+abstract class EventActivity() : AppCompatActivity(){
+    lateinit var game: Game
+    lateinit var hero: Hero
+
     public abstract fun setNameStory()
     public abstract fun setContent()
     public abstract fun setOptions()
-    public fun createoptionButton(option: EventOption, possible: Boolean,game: Game): LinearLayout?{
+    public fun createoptionButton(option: EventOption, possible: Boolean,game: Game,count: Int): LinearLayout?{
         var ll = LinearLayout(this)
-        ll.setOrientation(LinearLayout.VERTICAL);
+        ll.orientation = LinearLayout.VERTICAL;
 
         var button = Button(this)
         button.text = option.name
         button.setOnClickListener{
+            println("BUTTON PRESSED targetId: " + option.targetId.toString())
             game.StartEvent(this,option.targetId)
             //TODO create activity
         }

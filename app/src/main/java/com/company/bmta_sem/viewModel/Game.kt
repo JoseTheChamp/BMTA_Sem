@@ -1,16 +1,14 @@
 package com.company.bmta_sem.viewModel
 
-import Model.Event
-import Model.Hero
-import Model.Scenario
-import Model.JsonConverter
+import Model.*
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
-import com.company.bmta_sem.view.HeroesGalleryActivity
-import com.company.bmta_sem.view.StoryEventActivity
+import com.company.bmta_sem.model.Event
+import com.company.bmta_sem.view.*
 
 class Game(
     dataJson: String = ""
@@ -19,31 +17,49 @@ class Game(
     var heroes : List<Hero> = listOf()
     lateinit var currentScenario : Scenario
     lateinit var currentHero : Hero
+    lateinit var currentEvent : Event
 
     init {
         val jsonConverter = JsonConverter(dataJson)
         scenarios = jsonConverter.getScenarios()
         heroes = jsonConverter.getHeroes()
+        currentHero = Hero("Karel","Je to hrdina.",100.0,3.0,0.5)
     }
 
     fun StartScenario(context: Context,index: Int){
-        println("AAAAAAAAAAAAAA - spust " + index.toString())
-        println(scenarios[index].name)
+        println("IN GAME - START SCENARIO")
         currentScenario = scenarios[index]
         var intent = Intent(context, StoryEventActivity::class.java)
-        //budnle event via lower comment
+        currentEvent = currentScenario.events[0]
         context.startActivity(intent)
     }
     fun StartEvent(context: Context,targetId : Int){
-        for (event in currentScenario.events){
-            if (event.id == targetId) {
-                //when type of event
-                var intent = Intent(context, StoryEventActivity::class.java)
-                //budnle event via lower comment
-                context.startActivity(intent)
+        if (targetId < 0){
+            if (targetId == -1) {
+                context.startActivity(Intent(context,MainMenuActivity::class.java))
+                return
             }
+            throw Exception("Zaporny cislo eventu")
+        }else{
+            for (event in currentScenario.events){
+                println("ID hledani: " + event.id.toString() + "    hledam " + targetId)
+                if (event.id == targetId) {
+                    currentEvent = event
+                    var intent: Intent?
+                    when(currentEvent) {
+                        is StoryEvent -> intent = Intent(context, StoryEventActivity::class.java)
+                        is ChallengeEvent -> intent = Intent(context, ChallengeEventActivity::class.java)
+                        is FightEvent -> intent = Intent(context, FightEventActivity::class.java)
+                        is EndEvent -> intent = Intent(context, EndEventActivity::class.java)
+                        is StatsEvent -> intent = Intent(context, StoryEventActivity::class.java)
+                        else -> throw Exception("This type of event does not exist (game-start event)")
+                    }
+                    context.startActivity(intent)
+                    return
+                }
+            }
+            throw Exception("Event id does not exist: " + targetId.toString())
         }
-        throw Exception("Event id does not exist: " + targetId.toString())
     }
 
     fun toasti(context: Context){

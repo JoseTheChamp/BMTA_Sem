@@ -56,14 +56,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutContent"
             android:layout_width="match_parent"
-            android:layout_height="346dp">
+            android:layout_height="287dp">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/layoutButtons"
             android:layout_width="match_parent"
-            android:layout_height="91dp"
+            android:layout_height="157dp"
             android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
 
