@@ -18,13 +18,147 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtDes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="MKSMKC KSCNKS  CSK C KSC   KS C K CSK KSC "
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtHeroDetailName" />
+
+    <TextView
+        android:id="@+id/Prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Strength"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/prompt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDes" />
+
+    <TextView
+        android:id="@+id/prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Dexterity"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/prompt2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Prompt" />
+
+    <TextView
+        android:id="@+id/prompt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Constitution"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/prompt3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prompt" />
+
+    <TextView
+        android:id="@+id/prompt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Inteligence"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/prompt4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prompt2" />
+
+    <TextView
+        android:id="@+id/prompt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Wisdom"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/prompt5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prompt3" />
+
+    <TextView
+        android:id="@+id/prompt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Charisma"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prompt4" />
+
+    <TextView
+        android:id="@+id/txtStr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="str"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtDex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDes" />
+
+    <TextView
+        android:id="@+id/txtDex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="str"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtCon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStr" />
+
+    <TextView
+        android:id="@+id/txtCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="str"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtInt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDex" />
+
+    <TextView
+        android:id="@+id/txtInt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="str"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtWis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCon" />
+
+    <TextView
+        android:id="@+id/txtWis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="str"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtCha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInt" />
+
+    <TextView
+        android:id="@+id/txtCha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="str"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWis" />
 </androidx.constraintlayout.widget.ConstraintLayout>
