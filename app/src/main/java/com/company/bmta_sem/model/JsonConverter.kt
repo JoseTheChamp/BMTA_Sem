@@ -15,8 +15,13 @@ class JsonConverter (var dataJson : String) {
     }
 
     fun getHeroes() : List<Hero>{
-        //read all heroes
-        return listOf()
+        var len = 0
+        var realHeroes : ArrayList<Hero> = ArrayList()
+        len = heroes?.length()!!
+        for (i in 0 until len step 1){
+            realHeroes.add(readHero(heroes!!.getJSONObject(i))!!)
+        }
+        return realHeroes
     }
 
     fun getScenarios() : List<Scenario>{

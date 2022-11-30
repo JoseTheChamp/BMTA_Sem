@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".view.HeroDetailActivity">
 
+    <TextView
+        android:id="@+id/txtHeroDetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="HeroName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="MKSMKC KSCNKS  CSK C KSC   KS C K CSK KSC "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeroDetailName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

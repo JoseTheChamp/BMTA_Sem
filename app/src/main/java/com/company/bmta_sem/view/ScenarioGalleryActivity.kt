@@ -16,7 +16,7 @@ class ScenarioGalleryActivity : AppCompatActivity() {
         binding = ActivityScenarioGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        game = GameProvider.game
+        game = GameProvider?.game!!
 
         val scenarios = game.scenarios
         val list : ArrayList<String> = arrayListOf()
@@ -25,6 +25,6 @@ class ScenarioGalleryActivity : AppCompatActivity() {
         }
 
         binding.scenarioRowRecycler.layoutManager = LinearLayoutManager(this)
-        binding.scenarioRowRecycler.adapter = LogAdapter(list)
+        binding.scenarioRowRecycler.adapter = RowScenarioAdapter(list)
     }
 }

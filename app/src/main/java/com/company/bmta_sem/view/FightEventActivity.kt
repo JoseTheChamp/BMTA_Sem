@@ -14,7 +14,7 @@ class FightEventActivity : EventActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFightEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        game = GameProvider.game
+        game = GameProvider?.game!!
         hero = game.currentHero
         event = game.currentEvent as FightEvent
 

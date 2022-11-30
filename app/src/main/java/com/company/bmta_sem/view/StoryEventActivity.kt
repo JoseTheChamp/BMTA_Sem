@@ -14,7 +14,7 @@ class StoryEventActivity() : EventActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStoryEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        game = GameProvider.game
+        game = GameProvider?.game!!
         hero = game.currentHero
         event = game.currentEvent as StoryEvent
 

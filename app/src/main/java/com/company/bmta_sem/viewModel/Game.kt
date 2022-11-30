@@ -23,7 +23,7 @@ class Game(
         val jsonConverter = JsonConverter(dataJson)
         scenarios = jsonConverter.getScenarios()
         heroes = jsonConverter.getHeroes()
-        currentHero = Hero("Karel","Je to hrdina.",100.0,3.0,0.5)
+        currentHero = heroes[0]
     }
 
     fun StartScenario(context: Context,index: Int){

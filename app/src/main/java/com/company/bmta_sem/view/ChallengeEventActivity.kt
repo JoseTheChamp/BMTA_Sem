@@ -16,7 +16,7 @@ class ChallengeEventActivity : EventActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChallengeEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        game = GameProvider.game
+        game = GameProvider?.game!!
         hero = game.currentHero
         event = game.currentEvent as ChallengeEvent
 

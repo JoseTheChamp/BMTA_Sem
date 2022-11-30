@@ -31,24 +31,27 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(Intent(this, ScenarioGalleryActivity::class.java))
         }
         binding.btnHeroDetail.setOnClickListener{
-            startActivity(Intent(this, ScenarioGalleryActivity::class.java))
+            startActivity(Intent(this, HeroDetailActivity::class.java))
         }
         binding.btnExit.setOnClickListener{
             System.exit(0);
         }
 
         val dataJson = readSettingsJson()
-        GameProvider.init(dataJson)
-        game = GameProvider.game
+        if (GameProvider.game == null) GameProvider.init(dataJson)
+        game = GameProvider.game!!
+
+        binding.txtHeroName.text = game.currentHero.name
+
         /*
         val factory = GameFactory(dataJson)
         game = ViewModelProvider(this, factory).get(Game::class.java)
 
         var game2 = ViewModelProvider(this).get(Game::class.java)
         */
-        var text = game.scenarios[0].events[0].name
-        val toast: Toast = Toast.makeText(applicationContext, text + "2", Toast.LENGTH_LONG)
-        toast.show()
+        //var text = game.scenarios[0].events[0].name
+        //val toast: Toast = Toast.makeText(applicationContext, text + "2", Toast.LENGTH_LONG)
+        //toast.show()
 
     }
 

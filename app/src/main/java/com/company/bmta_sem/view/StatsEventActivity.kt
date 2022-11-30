@@ -15,7 +15,7 @@ class StatsEventActivity : EventActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStatsEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        game = GameProvider.game
+        game = GameProvider?.game!!
         hero = game.currentHero
         event = game.currentEvent as StatsEvent
 

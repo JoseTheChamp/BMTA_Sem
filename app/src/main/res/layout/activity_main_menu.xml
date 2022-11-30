@@ -13,7 +13,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:text="Heroes"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/txtHeroName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -50,8 +50,8 @@
         app:layout_constraintTop_toBottomOf="@+id/btnHeroDetail" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="98dp"
+        android:id="@+id/txtHeroName"
+        android:layout_width="wrap_content"
         android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"

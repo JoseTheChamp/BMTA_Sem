@@ -36,8 +36,7 @@
             "name": "Ztratil jses.",
             "hint": "Máš pocit že tento úsek lesa jsi již viděl."
           },
-          "stat":
-          {
+          "stat": {
             "stat": "Wisdom",
             "value": 2.0
           }
@@ -52,8 +51,7 @@
               "targetId": 15,
               "name": "Schovat se",
               "hint": "Kousek od cesty je docela hezky velký balvan.",
-              "stat":
-              {
+              "stat": {
                 "stat": "Dexterity",
                 "value": 0.5
               }
@@ -93,8 +91,7 @@
           "id": 15,
           "name": "Našel jsi konec lesa",
           "story": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis viverra diam non justo. Aenean placerat. Aliquam in lorem sit amet leo accumsan lacinia. Aliquam erat volutpat.",
-          "option":
-          {
+          "option": {
             "targetId": -1,
             "name": "Konec mé výpravy.",
             "hint": "A že to byla cesta."
@@ -107,6 +104,10 @@
     {
       "name": "karel",
       "description": "Je to chlapec z vesnice. Teď se z něho stane chlap."
+    },
+    {
+      "name": "Petr",
+      "description": "Enigmatický samotář."
     }
   ]
 }
