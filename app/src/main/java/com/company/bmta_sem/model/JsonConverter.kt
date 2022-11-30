@@ -1,10 +1,13 @@
 package Model
 
+import android.util.JsonWriter
 import android.util.Log
 import com.company.bmta_sem.model.Event
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.io.OutputStream
+import java.io.OutputStreamWriter
 
 class JsonConverter (var dataJson : String) {
     var scenarios : JSONArray? = null
@@ -12,6 +15,24 @@ class JsonConverter (var dataJson : String) {
     init {
         scenarios = parseJsonArray("scenarios")
         heroes = parseJsonArray("heroes")
+    }
+
+    fun writeJsonStream(out : OutputStream, heroes : List<Hero>){
+    var jsonWriter = JsonWriter(OutputStreamWriter(out,"UTF-8"))
+        jsonWriter.setIndent("  ")
+        writeHeroesArray(jsonWriter,heroes)
+    }
+
+    fun writeHeroesArray(writer: JsonWriter,heroes: List<Hero>){
+        writer.beginArray()
+        for (hero in heroes){
+            writeHero(writer,hero)
+        }
+        writer.endArray()
+    }
+
+    fun writeHero(writer: JsonWriter,hero: Hero){
+        
     }
 
     fun getHeroes() : List<Hero>{
