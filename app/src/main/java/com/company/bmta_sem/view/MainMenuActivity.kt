@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.company.bmta_sem.R
 import com.company.bmta_sem.databinding.ActivityMainMenuBinding
 import com.company.bmta_sem.viewModel.Game
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream

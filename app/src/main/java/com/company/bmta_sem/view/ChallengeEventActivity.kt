@@ -1,16 +1,11 @@
 package com.company.bmta_sem.view
 
 import Model.ChallengeEvent
-import Model.FightEvent
 import Model.Stat
-import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.company.bmta_sem.databinding.ActivityChallengeEventBinding
-import com.company.bmta_sem.databinding.ActivityFightEventBinding
-import com.company.bmta_sem.databinding.ActivityStoryEventBinding
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 
 class ChallengeEventActivity : EventActivity() {
     private lateinit var binding : ActivityChallengeEventBinding

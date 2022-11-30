@@ -4,7 +4,7 @@ import Model.EndEvent
 import android.os.Bundle
 import android.widget.TextView
 import com.company.bmta_sem.databinding.ActivityEndEventBinding
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 
 class EndEventActivity : EventActivity() {
     private lateinit var binding : ActivityEndEventBinding

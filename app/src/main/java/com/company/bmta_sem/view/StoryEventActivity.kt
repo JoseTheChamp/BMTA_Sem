@@ -1,13 +1,9 @@
 package com.company.bmta_sem.view
 
-import com.company.bmta_sem.model.Event
-import Model.Hero
 import Model.StoryEvent
-import android.content.Intent
 import android.os.Bundle
 import com.company.bmta_sem.databinding.ActivityStoryEventBinding
-import com.company.bmta_sem.viewModel.Game
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 
 class StoryEventActivity() : EventActivity() {
     private lateinit var binding : ActivityStoryEventBinding

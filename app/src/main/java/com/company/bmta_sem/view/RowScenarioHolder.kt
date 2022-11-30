@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.company.bmta_sem.R
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 
 class RowScenarioHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var btnRow : Button

@@ -22,10 +22,14 @@ abstract class EventActivity() : AppCompatActivity(){
     public abstract fun setOptions()
     public fun createoptionButton(option: EventOption, possible: Boolean,game: Game,count: Int): LinearLayout?{
         var ll = LinearLayout(this)
-        ll.orientation = LinearLayout.VERTICAL;
+        var params = LinearLayout.LayoutParams(100,400,1f)
+        ll.layoutParams = params
+        ll.orientation = LinearLayout.VERTICAL
+
 
         var button = Button(this)
         button.text = option.name
+
         button.setOnClickListener{
             println("BUTTON PRESSED targetId: " + option.targetId.toString())
             game.StartEvent(this,option.targetId)

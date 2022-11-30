@@ -1,13 +1,10 @@
 package com.company.bmta_sem.view
 
 import Model.FightEvent
-import Model.StoryEvent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.company.bmta_sem.databinding.ActivityFightEventBinding
-import com.company.bmta_sem.databinding.ActivityStoryEventBinding
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 
 class FightEventActivity : EventActivity() {
     private lateinit var binding : ActivityFightEventBinding

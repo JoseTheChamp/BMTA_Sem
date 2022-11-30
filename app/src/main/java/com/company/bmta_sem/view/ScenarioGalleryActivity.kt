@@ -2,12 +2,10 @@ package com.company.bmta_sem.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.company.bmta_sem.databinding.ActivityHeroesGalleryBinding
 import com.company.bmta_sem.databinding.ActivityScenarioGalleryBinding
 import com.company.bmta_sem.viewModel.Game
-import com.company.bmta_sem.viewModel.GameProvider
+import com.company.bmta_sem.model.GameProvider
 
 class ScenarioGalleryActivity : AppCompatActivity() {
     private lateinit var binding : ActivityScenarioGalleryBinding
