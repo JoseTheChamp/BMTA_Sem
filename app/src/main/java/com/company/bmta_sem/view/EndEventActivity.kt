@@ -1,6 +1,7 @@
 package com.company.bmta_sem.view
 
 import Model.EndEvent
+import Model.JsonConverter
 import android.os.Bundle
 import android.widget.TextView
 import com.company.bmta_sem.databinding.ActivityEndEventBinding
@@ -22,6 +23,8 @@ class EndEventActivity : EventActivity() {
         setNameStory()
         setContent()
         setOptions()
+        game.refresh = true
+        JsonConverter.saveHeroes(this)
     }
 
     override fun setNameStory() {

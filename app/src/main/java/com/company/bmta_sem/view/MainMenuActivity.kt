@@ -8,6 +8,8 @@ import com.company.bmta_sem.databinding.ActivityMainMenuBinding
 import com.company.bmta_sem.model.GameProvider
 import com.company.bmta_sem.viewModel.Game
 import java.io.BufferedReader
+import java.io.File
+import java.io.FileInputStream
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -38,19 +40,29 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(startMain)
         }
 
-        val scenarioJson = readSettingsJson(R.raw.scenarios)
-        val heroesJson = readSettingsJson(R.raw.heroes)
-        if (GameProvider.game == null) GameProvider.init(scenarioJson,heroesJson)
+
+        if (GameProvider.game == null) {
+            val scenarioJson = readSettingsJson("scenarios.json")
+            val heroesJson = readSettingsJson("heroes.json")
+            GameProvider.init(scenarioJson,heroesJson)
+        }
         game = GameProvider.game!!
+        if (game.refresh) {
+            val scenarioJson = readSettingsJson("scenarios.json")
+            val heroesJson = readSettingsJson("heroes.json")
+            GameProvider.init(scenarioJson,heroesJson)
+            game = GameProvider.game!!
+        }
 
         binding.txtHeroName.text = game.currentHero.name
 
     }
 
-    fun readSettingsJson (resource : Int) : String {
+    fun readSettingsJson (filename : String) : String {
         var string: String? = ""
         val stringBuilder = StringBuilder()
-        val inputStream: InputStream = this.resources.openRawResource(resource)
+        var file = File(this.filesDir.toString() + "/" + filename)
+        val inputStream: InputStream = FileInputStream(file)
         val reader = BufferedReader(InputStreamReader(inputStream))
         while (true) {
             try {
@@ -62,7 +74,9 @@ class MainMenuActivity : AppCompatActivity() {
 
         }
         inputStream.close()
+        println("-----------------")
+        println(stringBuilder.toString())
+        println("-----------------")
         return stringBuilder.toString()
     }
-
 }

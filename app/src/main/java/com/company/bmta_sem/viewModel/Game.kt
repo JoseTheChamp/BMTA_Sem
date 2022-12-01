@@ -17,11 +17,11 @@ class Game(
     lateinit var currentScenario : Scenario
     lateinit var currentHero : Hero
     lateinit var currentEvent : Event
-
+    var refresh : Boolean = false
     init {
-        val jsonConverter = JsonConverter(scenarioJson,heroesJson)
-        scenarios = jsonConverter.getScenarios()
-        heroes = jsonConverter.getHeroes()
+        JsonConverter.initial(scenarioJson,heroesJson)
+        scenarios = JsonConverter.getScenarios()
+        heroes = JsonConverter.getHeroes()
         currentHero = heroes[0]
     }
 
