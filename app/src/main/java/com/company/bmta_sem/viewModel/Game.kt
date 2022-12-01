@@ -3,24 +3,23 @@ package com.company.bmta_sem.viewModel
 import Model.*
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import com.company.bmta_sem.model.Event
 import com.company.bmta_sem.view.*
 
 class Game(
-    dataJson: String = ""
+    scenarioJson: String = "",
+    heroesJson: String = ""
 ) : ViewModel() {
     var scenarios : List<Scenario> = listOf()
-    var heroes : List<Hero> = listOf()
+    open var heroes : List<Hero> = listOf()
     lateinit var currentScenario : Scenario
     lateinit var currentHero : Hero
     lateinit var currentEvent : Event
 
     init {
-        val jsonConverter = JsonConverter(dataJson)
+        val jsonConverter = JsonConverter(scenarioJson,heroesJson)
         scenarios = jsonConverter.getScenarios()
         heroes = jsonConverter.getHeroes()
         currentHero = heroes[0]
@@ -68,20 +67,4 @@ class Game(
         context.startActivity(intent)
         toast.show()
     }
-
-/*
-
-Bundle bundle = new Bundle();
-bundle.putSerializable("value", all_thumbs);
-intent.putExtras(bundle);
-And in SomeClass Activity get it as:
-
-Intent intent = this.getIntent();
-Bundle bundle = intent.getExtras();
-
-List<Thumbnail> thumbs=
-               (List<Thumbnail>)bundle.getSerializable("value");
-
-
- */
 }

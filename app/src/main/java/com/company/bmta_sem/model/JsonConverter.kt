@@ -7,20 +7,19 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.OutputStream
-import java.io.OutputStreamWriter
 
-class JsonConverter (var dataJson : String) {
+class JsonConverter (var scenarioJson : String, var heroesjson : String) {
     var scenarios : JSONArray? = null
     var heroes : JSONArray? = null
     init {
-        scenarios = parseJsonArray("scenarios")
-        heroes = parseJsonArray("heroes")
+        scenarios = parseJsonArray("scenarios",scenarioJson)
+        heroes = parseJsonArray("heroes",heroesjson)
     }
 
     fun writeJsonStream(out : OutputStream, heroes : List<Hero>){
-    var jsonWriter = JsonWriter(OutputStreamWriter(out,"UTF-8"))
+    /*var jsonWriter = JsonWriter(OutputStreamWriter(out,"UTF-8"))
         jsonWriter.setIndent("  ")
-        writeHeroesArray(jsonWriter,heroes)
+        writeHeroesArray(jsonWriter,heroes)*/
     }
 
     fun writeHeroesArray(writer: JsonWriter,heroes: List<Hero>){
@@ -32,7 +31,7 @@ class JsonConverter (var dataJson : String) {
     }
 
     fun writeHero(writer: JsonWriter,hero: Hero){
-        
+
     }
 
     fun getHeroes() : List<Hero>{
@@ -157,29 +156,9 @@ class JsonConverter (var dataJson : String) {
         return Enemy(name,description,health,attack,armor)
     }
 
-    fun parseJsonString(item:String) : String? {
+    fun parseJsonArray(item:String,scope : String) : JSONArray? {
         try {
-            val jObj = JSONObject(dataJson)
-            return jObj.getString(item)
-        } catch (ex: JSONException) {
-            Log.i("JsonParser String", "unexpected JSON exception", ex)
-            return null
-        }
-    }
-
-    fun parseJsonObject(item:String) : JSONObject? {
-        try {
-            val jObj = JSONObject(dataJson)
-            return jObj.getJSONObject(item)
-        } catch (ex: JSONException) {
-            Log.i("JsonParser object", "unexpected JSON exception", ex)
-            return null
-        }
-    }
-
-    fun parseJsonArray(item:String) : JSONArray? {
-        try {
-            val jObj = JSONObject(dataJson)
+            val jObj = JSONObject(scope)
             return jObj.getJSONArray(item)
         } catch (ex: JSONException) {
             Log.i("JsonParser array", "unexpected JSON exception", ex)

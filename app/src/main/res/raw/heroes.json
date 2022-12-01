@@ -1,0 +1,12 @@
+{
+  "heroes": [
+    {
+      "name": "karel",
+      "description": "Je to chlapec z vesnice. Teď se z něho stane chlap."
+    },
+    {
+      "name": "Petr",
+      "description": "Enigmatický samotář."
+    }
+  ]
+}

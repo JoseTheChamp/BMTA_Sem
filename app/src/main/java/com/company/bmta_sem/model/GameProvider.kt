@@ -4,10 +4,14 @@ import com.company.bmta_sem.viewModel.Game
 
 class GameProvider() {
     companion object {
-        var game : Game? = null
+        open var game : Game? = null
 
-        fun init(json : String){
-            game = Game(json)
+        fun setHealth(value : Double){
+            game?.currentHero?.health = value
+        }
+
+        fun init(scenarioJson : String,heroesJson : String){
+            game = Game(scenarioJson,heroesJson)
         }
     }
 }
