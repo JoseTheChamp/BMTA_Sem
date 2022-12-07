@@ -3,13 +3,17 @@ package com.company.bmta_sem.view
 import com.company.bmta_sem.model.Event
 import Model.EventOption
 import Model.Hero
+import Model.Stat
 import android.app.ActionBar.LayoutParams
+import android.graphics.Color
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.updateLayoutParams
+import com.company.bmta_sem.R
 import com.company.bmta_sem.databinding.ActivityStoryEventBinding
 import com.company.bmta_sem.viewModel.Game
 
@@ -39,6 +43,18 @@ abstract class EventActivity() : AppCompatActivity(){
         ll.addView(button)
 
         //TODO requirements
+
+        if(option.stat != null){
+            var reqText = TextView(this)
+            reqText.text = "Required: " + option.stat!!.stat.toString() + " " + option.stat!!.value.toString()
+            if (possible){
+                reqText.setTextColor(Color.parseColor("#159939"))
+            }else{
+                reqText.setTextColor(Color.parseColor("#99141d"))
+            }
+            ll.addView(reqText)
+        }
+
 
         var text = TextView(this)
         text.text = option.hint

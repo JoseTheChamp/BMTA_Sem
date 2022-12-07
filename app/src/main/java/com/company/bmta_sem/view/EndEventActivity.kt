@@ -21,9 +21,9 @@ class EndEventActivity : EventActivity() {
         event = game.currentEvent as EndEvent
 
         setNameStory()
-        setContent()
         setOptions()
         game.refresh = true
+        JsonConverter.realHeroes = game.heroes
         JsonConverter.saveHeroes(this)
     }
 
@@ -34,10 +34,6 @@ class EndEventActivity : EventActivity() {
     }
 
     override fun setContent() {
-        var prompt = TextView(this)
-        prompt.text = "End of an Adventure."
-        prompt.textSize = 18f
-        binding.layoutContent.addView(prompt)
     }
 
     override fun setOptions() {

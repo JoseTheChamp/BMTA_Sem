@@ -20,7 +20,8 @@ class StatsEvent (override var id : Int, override var name : String, override va
     }
 
     override fun run(hero: Hero): Int {
-        TODO("Not yet implemented")
+        execute(hero)
+        return 0
     }
 
     override fun getAllEventoptions(): List<EventOption> {

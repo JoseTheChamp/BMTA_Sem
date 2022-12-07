@@ -50,7 +50,7 @@ class Game(
                         is ChallengeEvent -> intent = Intent(context, ChallengeEventActivity::class.java)
                         is FightEvent -> intent = Intent(context, FightEventActivity::class.java)
                         is EndEvent -> intent = Intent(context, EndEventActivity::class.java)
-                        is StatsEvent -> intent = Intent(context, StoryEventActivity::class.java)
+                        is StatsEvent -> intent = Intent(context, StatsEventActivity::class.java)
                         else -> throw Exception("This type of event does not exist (game-start event)")
                     }
                     context.startActivity(intent)
