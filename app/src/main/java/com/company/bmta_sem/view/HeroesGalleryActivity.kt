@@ -1,5 +1,6 @@
 package com.company.bmta_sem.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,10 @@ class HeroesGalleryActivity : AppCompatActivity() {
         var game = GameProvider.game
         for (hero in game?.heroes!!){
           list.add(hero.name)
+        }
+
+        binding.btnNewHero.setOnClickListener{
+            startActivity(Intent(this, NewHeroActivity::class.java))
         }
 
         binding.heroRowRecycler.layoutManager = LinearLayoutManager(this)
