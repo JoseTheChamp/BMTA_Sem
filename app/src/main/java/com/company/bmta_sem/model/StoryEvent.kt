@@ -16,6 +16,7 @@ class StoryEvent (override var id : Int, override var name : String, override va
         }
         return readln().toInt()
     }
+
     override fun run(hero: Hero): Int {
         var index = vypis()
         if (index > options.count() || index <= 0){
