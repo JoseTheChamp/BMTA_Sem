@@ -17,16 +17,21 @@ import com.company.bmta_sem.R
 import com.company.bmta_sem.databinding.ActivityStoryEventBinding
 import com.company.bmta_sem.viewModel.Game
 
-abstract class EventActivity() : AppCompatActivity(){
+abstract class EventActivity() : AppCompatActivity() {
     lateinit var game: Game
     lateinit var hero: Hero
 
     public abstract fun setNameStory()
     public abstract fun setContent()
     public abstract fun setOptions()
-    public fun createoptionButton(option: EventOption, possible: Boolean,game: Game,count: Int): LinearLayout?{
+    public fun createoptionButton(
+        option: EventOption,
+        possible: Boolean,
+        game: Game,
+        count: Int
+    ): LinearLayout? {
         var ll = LinearLayout(this)
-        var params = LinearLayout.LayoutParams(100,400,1f)
+        var params = LinearLayout.LayoutParams(100, 400, 1f)
         ll.layoutParams = params
         ll.orientation = LinearLayout.VERTICAL
 
@@ -34,9 +39,9 @@ abstract class EventActivity() : AppCompatActivity(){
         var button = Button(this)
         button.text = option.name
 
-        button.setOnClickListener{
+        button.setOnClickListener {
             println("BUTTON PRESSED targetId: " + option.targetId.toString())
-            game.StartEvent(this,option.targetId)
+            game.StartEvent(this, option.targetId)
             //TODO create activity
         }
         button.isEnabled = possible
@@ -44,12 +49,13 @@ abstract class EventActivity() : AppCompatActivity(){
 
         //TODO requirements
 
-        if(option.stat != null){
+        if (option.stat != null) {
             var reqText = TextView(this)
-            reqText.text = "Required: " + option.stat!!.stat.toString() + " " + option.stat!!.value.toString()
-            if (possible){
+            reqText.text =
+                "Required: " + option.stat!!.stat.toString() + " " + option.stat!!.value.toString()
+            if (possible) {
                 reqText.setTextColor(Color.parseColor("#159939"))
-            }else{
+            } else {
                 reqText.setTextColor(Color.parseColor("#99141d"))
             }
             ll.addView(reqText)

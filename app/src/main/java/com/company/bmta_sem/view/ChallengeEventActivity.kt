@@ -8,7 +8,7 @@ import com.company.bmta_sem.databinding.ActivityChallengeEventBinding
 import com.company.bmta_sem.model.GameProvider
 
 class ChallengeEventActivity : EventActivity() {
-    private lateinit var binding : ActivityChallengeEventBinding
+    private lateinit var binding: ActivityChallengeEventBinding
     lateinit var event: ChallengeEvent
 
 
@@ -34,9 +34,9 @@ class ChallengeEventActivity : EventActivity() {
 
     override fun setContent() {
         var chal = TextView(this)
-        var cislo1 : Double = 0.0
+        var cislo1: Double = 0.0
         var prompt: String = "failed"
-        when(event.stat.stat){
+        when (event.stat.stat) {
             Stat.STRENGTH -> {
                 cislo1 = hero.strength
                 if (cislo1 > event.stat.value) prompt = "won"
@@ -84,8 +84,15 @@ class ChallengeEventActivity : EventActivity() {
     override fun setOptions() {
         var options = event.getAllEventoptions()
         var possible = event.getEventOptionsPossible(hero)
-        for (i in options.indices step 1){
-            binding.layoutButtons.addView(createoptionButton(options[i],possible[i],game,options.size))
+        for (i in options.indices step 1) {
+            binding.layoutButtons.addView(
+                createoptionButton(
+                    options[i],
+                    possible[i],
+                    game,
+                    options.size
+                )
+            )
         }
     }
 

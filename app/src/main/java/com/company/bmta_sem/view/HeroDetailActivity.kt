@@ -8,7 +8,7 @@ import com.company.bmta_sem.databinding.ActivityHeroesGalleryBinding
 import com.company.bmta_sem.model.GameProvider
 
 class HeroDetailActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityHeroDetailBinding
+    private lateinit var binding: ActivityHeroDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

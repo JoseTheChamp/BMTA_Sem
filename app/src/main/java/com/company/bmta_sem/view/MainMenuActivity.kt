@@ -16,8 +16,8 @@ import java.io.InputStreamReader
 
 
 class MainMenuActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainMenuBinding
-    lateinit var game : Game
+    private lateinit var binding: ActivityMainMenuBinding
+    lateinit var game: Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,16 +25,16 @@ class MainMenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.btnHeroes.setOnClickListener{
+        binding.btnHeroes.setOnClickListener {
             startActivity(Intent(this, HeroesGalleryActivity::class.java))
         }
-        binding.btnPlayScenario.setOnClickListener{
+        binding.btnPlayScenario.setOnClickListener {
             startActivity(Intent(this, ScenarioGalleryActivity::class.java))
         }
-        binding.btnHeroDetail.setOnClickListener{
+        binding.btnHeroDetail.setOnClickListener {
             startActivity(Intent(this, HeroDetailActivity::class.java))
         }
-        binding.btnExit.setOnClickListener{
+        binding.btnExit.setOnClickListener {
             val startMain = Intent(Intent.ACTION_MAIN)
             startMain.addCategory(Intent.CATEGORY_HOME)
             startActivity(startMain)
@@ -44,13 +44,13 @@ class MainMenuActivity : AppCompatActivity() {
         if (GameProvider.game == null) {
             val scenarioJson = readSettingsJson("scenarios.json")
             val heroesJson = readSettingsJson("heroes.json")
-            GameProvider.init(scenarioJson,heroesJson)
+            GameProvider.init(scenarioJson, heroesJson)
         }
         game = GameProvider.game!!
         if (game.refresh) {
             val scenarioJson = readSettingsJson("scenarios.json")
             val heroesJson = readSettingsJson("heroes.json")
-            GameProvider.init(scenarioJson,heroesJson)
+            GameProvider.init(scenarioJson, heroesJson)
             game = GameProvider.game!!
         }
 
@@ -58,7 +58,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     }
 
-    fun readSettingsJson (filename : String) : String {
+    fun readSettingsJson(filename: String): String {
         var string: String? = ""
         val stringBuilder = StringBuilder()
         var file = File(this.filesDir.toString() + "/" + filename)

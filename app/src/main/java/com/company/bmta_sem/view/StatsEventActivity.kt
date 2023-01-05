@@ -8,7 +8,7 @@ import com.company.bmta_sem.databinding.ActivityStatsEventBinding
 import com.company.bmta_sem.model.GameProvider
 
 class StatsEventActivity : EventActivity() {
-    private lateinit var binding : ActivityStatsEventBinding
+    private lateinit var binding: ActivityStatsEventBinding
     lateinit var event: StatsEvent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,12 +34,11 @@ class StatsEventActivity : EventActivity() {
 
     override fun setContent() {
         var stats = TextView(this)
-        var value1 : Double
-        var value2 : Double
-        var rozdil : Double
+        var value1: Double
+        var value2: Double
         stats.text = ""
-        for (stat in event.stats){
-            when(stat.stat){
+        for (stat in event.stats) {
+            when (stat.stat) {
                 Stat.STRENGTH -> {
                     value1 = hero.strength - stat.value
                     value2 = hero.strength
@@ -58,7 +57,7 @@ class StatsEventActivity : EventActivity() {
                 }
                 Stat.WISDOM -> {
                     value1 = hero.wisdom - stat.value
-                        value2 = hero.wisdom
+                    value2 = hero.wisdom
                 }
                 Stat.CONSTITUTION -> {
                     value1 = hero.constitution - stat.value
@@ -77,7 +76,8 @@ class StatsEventActivity : EventActivity() {
                     value2 = hero.attack
                 }
             }
-            stats.text = stats.text.toString() + ":  " + value1 + " -> " + value2 + " (" + stat.value + ")\n"
+            stats.text =
+                stats.text.toString() + ":  " + value1 + " -> " + value2 + " (" + stat.value + ")\n"
         }
         stats.textSize = 16f
         binding.layoutContent.addView(stats)
@@ -86,8 +86,15 @@ class StatsEventActivity : EventActivity() {
     override fun setOptions() {
         var options = event.getAllEventoptions()
         var possible = event.getEventOptionsPossible(hero)
-        for (i in options.indices step 1){
-            binding.layoutButtons.addView(createoptionButton(options[i],possible[i],game,options.size))
+        for (i in options.indices step 1) {
+            binding.layoutButtons.addView(
+                createoptionButton(
+                    options[i],
+                    possible[i],
+                    game,
+                    options.size
+                )
+            )
         }
     }
 }

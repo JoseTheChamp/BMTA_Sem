@@ -8,7 +8,7 @@ import com.company.bmta_sem.databinding.ActivityEndEventBinding
 import com.company.bmta_sem.model.GameProvider
 
 class EndEventActivity : EventActivity() {
-    private lateinit var binding : ActivityEndEventBinding
+    private lateinit var binding: ActivityEndEventBinding
     lateinit var event: EndEvent
 
 
@@ -39,8 +39,15 @@ class EndEventActivity : EventActivity() {
     override fun setOptions() {
         var options = event.getAllEventoptions()
         var possible = event.getEventOptionsPossible(hero)
-        for (i in options.indices step 1){
-            binding.layoutButtons.addView(createoptionButton(options[i],possible[i],game,options.size))
+        for (i in options.indices step 1) {
+            binding.layoutButtons.addView(
+                createoptionButton(
+                    options[i],
+                    possible[i],
+                    game,
+                    options.size
+                )
+            )
         }
     }
 }

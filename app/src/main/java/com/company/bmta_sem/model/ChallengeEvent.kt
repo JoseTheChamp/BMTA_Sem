@@ -2,19 +2,16 @@ package Model
 
 import com.company.bmta_sem.model.Event
 
-class ChallengeEvent (override var id : Int, override var name : String, override var story : String, var optionPassed : EventOption, var optionFailed : EventOption, var stat : StatValue): Event() {
+class ChallengeEvent(
+    override var id: Int,
+    override var name: String,
+    override var story: String,
+    var optionPassed: EventOption,
+    var optionFailed: EventOption,
+    var stat: StatValue
+) : Event() {
 
-    fun vypis(hero: Hero) : EventOption{
-        println(name + " - " + story)
-        if (logika(hero)){
-            println("Fail")
-            return optionFailed
-        }
-        println("Uspech")
-        return optionPassed
-    }
-
-    fun logika(hero: Hero) : Boolean{
+    fun logika(hero: Hero): Boolean {
         var failed = false
         when (stat.stat) {
             Stat.STRENGTH -> if (hero.strength < stat.value) failed = true
@@ -31,18 +28,12 @@ class ChallengeEvent (override var id : Int, override var name : String, overrid
         return true
     }
 
-    override fun run(hero: Hero): Int {
-        var option = vypis(hero)
-        readln()
-        return option.targetId
-    }
-
     override fun getAllEventoptions(): List<EventOption> {
-        return listOf(optionPassed,optionFailed)
+        return listOf(optionPassed, optionFailed)
     }
 
     override fun getEventOptionsPossible(hero: Hero): List<Boolean> {
-        if (logika(hero)) return listOf(true,false)
-        return listOf(false,true)
+        if (logika(hero)) return listOf(true, false)
+        return listOf(false, true)
     }
 }

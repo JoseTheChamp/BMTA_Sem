@@ -6,7 +6,7 @@ import com.company.bmta_sem.databinding.ActivityStoryEventBinding
 import com.company.bmta_sem.model.GameProvider
 
 class StoryEventActivity() : EventActivity() {
-    private lateinit var binding : ActivityStoryEventBinding
+    private lateinit var binding: ActivityStoryEventBinding
     lateinit var event: StoryEvent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +36,15 @@ class StoryEventActivity() : EventActivity() {
     override fun setOptions() {
         var options = event.getAllEventoptions()
         var possible = event.getEventOptionsPossible(hero)
-        for (i in options.indices step 1){
-            binding.layoutButtons.addView(createoptionButton(options[i],possible[i],game,options.size))
+        for (i in options.indices step 1) {
+            binding.layoutButtons.addView(
+                createoptionButton(
+                    options[i],
+                    possible[i],
+                    game,
+                    options.size
+                )
+            )
         }
     }
 }

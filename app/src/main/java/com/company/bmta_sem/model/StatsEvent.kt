@@ -2,9 +2,15 @@ package Model
 
 import com.company.bmta_sem.model.Event
 
-class StatsEvent (override var id : Int, override var name : String, override var story : String, var option : EventOption, var stats : List<StatValue>): Event() {
-    fun execute(hero: Hero){
-        for (stat in stats){
+class StatsEvent(
+    override var id: Int,
+    override var name: String,
+    override var story: String,
+    var option: EventOption,
+    var stats: List<StatValue>
+) : Event() {
+    fun execute(hero: Hero) {
+        for (stat in stats) {
             when (stat.stat) {
                 Stat.STRENGTH -> hero.strength += stat.value
                 Stat.ARMOR -> hero.armor += stat.value
@@ -19,7 +25,7 @@ class StatsEvent (override var id : Int, override var name : String, override va
         }
     }
 
-    override fun run(hero: Hero): Int {
+    fun run(hero: Hero): Int {
         execute(hero)
         return 0
     }

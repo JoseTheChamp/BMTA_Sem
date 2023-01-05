@@ -1,13 +1,20 @@
 package Model
 
-data class EventOption (var targetId : Int, var name : String, var hint : String): java.io.Serializable {
+data class EventOption(var targetId: Int, var name: String, var hint: String) :
+    java.io.Serializable {
     var stat: StatValue? = null
-    constructor(targetId: Int,name: String,hint: String,requirement: StatValue) : this(targetId,name,hint){
+
+    constructor(targetId: Int, name: String, hint: String, requirement: StatValue) : this(
+        targetId,
+        name,
+        hint
+    ) {
         this.stat = requirement
     }
-    fun isDoable(hero: Hero) : Boolean{
+
+    fun isDoable(hero: Hero): Boolean {
         var failed = false
-        if(stat?.stat == null) throw Exception("Stat was not inicialied but was used. (isDoable in Event Option)")
+        if (stat?.stat == null) throw Exception("Stat was not inicialied but was used. (isDoable in Event Option)")
         when (stat!!.stat) {
             Stat.STRENGTH -> if (hero.strength < stat!!.value) failed = true
             Stat.ARMOR -> if (hero.armor < stat!!.value) failed = true

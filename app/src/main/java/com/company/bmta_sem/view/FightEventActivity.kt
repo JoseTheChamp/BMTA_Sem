@@ -9,9 +9,9 @@ import com.company.bmta_sem.databinding.ActivityFightEventBinding
 import com.company.bmta_sem.model.GameProvider
 
 class FightEventActivity : EventActivity() {
-    private lateinit var binding : ActivityFightEventBinding
+    private lateinit var binding: ActivityFightEventBinding
     lateinit var event: FightEvent
-    var realHealth : Double = 0.0
+    var realHealth: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,8 @@ class FightEventActivity : EventActivity() {
                 "  Armor: " + event.enemy.armor
         enemy.textSize = 16f
         var result = TextView(this)
-        result.text = "You've defeated the " + event.enemy.name + ".\nYou are left with " + hero.health + " health."
+        result.text =
+            "You've defeated the " + event.enemy.name + ".\nYou are left with " + hero.health + " health."
         result.textSize = 16f
         layout.addView(enemy)
         layout.addView(result)
@@ -51,8 +52,15 @@ class FightEventActivity : EventActivity() {
     override fun setOptions() {
         var options = event.getAllEventoptions()
         var possible = event.getEventOptionsPossible(hero)
-        for (i in options.indices step 1){
-            binding.layoutButtons.addView(createoptionButton(options[i],possible[i],game,options.size))
+        for (i in options.indices step 1) {
+            binding.layoutButtons.addView(
+                createoptionButton(
+                    options[i],
+                    possible[i],
+                    game,
+                    options.size
+                )
+            )
         }
     }
 

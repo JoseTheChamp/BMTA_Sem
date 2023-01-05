@@ -8,8 +8,8 @@ import com.company.bmta_sem.viewModel.Game
 import com.company.bmta_sem.model.GameProvider
 
 class ScenarioGalleryActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityScenarioGalleryBinding
-    lateinit var game : Game
+    private lateinit var binding: ActivityScenarioGalleryBinding
+    lateinit var game: Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +19,8 @@ class ScenarioGalleryActivity : AppCompatActivity() {
         game = GameProvider?.game!!
 
         val scenarios = game.scenarios
-        val list : ArrayList<String> = arrayListOf()
-        for (scenario in scenarios){
+        val list: ArrayList<String> = arrayListOf()
+        for (scenario in scenarios) {
             list.add(scenario.name)
         }
 
